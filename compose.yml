@@ -1,0 +1,19 @@
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    command: bin/dev -b 0.0.0.0 -p 3000
+
+    volumes:
+      - .:/app
+      - bundler:/usr/local/bundle
+
+    ports:
+      - "3000:3000"
+
+volumes:
+  bundler:
+
