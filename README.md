@@ -36,14 +36,20 @@ Pour ce faire, nous mettons à votre disposition un starter d'application `RubyO
 Il est possible de lancer l'application en mode _development_ de deux manières :
 
 1. directement avec un environement ruby préalablement installé
+
   a) utilisation d'un gestionnaire de version : rbenv, rvm, asdf, etc...
+
   b) une installation de ruby et positionnement de la variable BUNDLE_PATH pour le stockage des gems
-  et lancer :
-  `bundle install` puis `bin/rails server`
+
+  ... et installer les gems : `bundle install` 
+
+  ... puis `bin/rails server`
 
 2. avec docker
+
   ( voir les fichiers Dockerfile et compose.yml )
-  `docker compose up -d`
+
+`docker compose up -d`
 
 
 **Merci de mettre le code à disposition sur un dépôt git et de nous transmettre les moyens d'y accéder.**
