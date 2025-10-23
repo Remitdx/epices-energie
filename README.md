@@ -31,6 +31,10 @@ Pour ce faire, nous mettons à votre disposition un starter d'application `RubyO
 Évidemment, nous adapterons nos observations à votre expérience du langage.
 
 
+**Merci de mettre le code à disposition sur un dépôt git et de nous transmettre les moyens d'y accéder.**
+
+
+
 # Setup
 
 Il est possible de lancer l'application en mode _development_ de deux manières :
@@ -50,8 +54,4 @@ Il est possible de lancer l'application en mode _development_ de deux manières 
   ( voir les fichiers Dockerfile et compose.yml )
 
 `docker compose up -d`
-
-
-**Merci de mettre le code à disposition sur un dépôt git et de nous transmettre les moyens d'y accéder.**
-
 
