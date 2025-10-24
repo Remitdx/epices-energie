@@ -1,0 +1,25 @@
+<main>
+  <p>Date : <%= @daily.date.strftime("%F") %></p>
+  <p>Production journalière totale : <%= @daily.energy.to_fs(:delimited, delimiter: " ") %></p>
+  <table>
+    <p>Détail de la production</p>
+    <thead>
+      <tr>
+        <th>Identifier</th>
+        <th>Datetime</th>
+        <th>Energy</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @daily.raw_datas.each do |data| %>
+        <tr>
+          <td><%= data.identifier %></td>
+          <td><%= data.datetime.strftime("%F") %></td>
+          <td><%= data.energy.to_fs(:delimited, delimiter: " ") %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <button><%= link_to 'Index', dailies_path %></button>
+</main>
