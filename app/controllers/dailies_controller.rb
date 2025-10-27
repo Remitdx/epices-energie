@@ -28,12 +28,12 @@ class DailiesController < ApplicationController
 
       if daily.save
         dailies[i].each do |data|
-          raw_data = RawData.new()
-          raw_data.identifier = data["identifier"]
-          raw_data.datetime = data["datetime"].to_datetime.strftime("%F %H")
-          raw_data.energy = data["energy"]
-          raw_data.daily_id = daily.id
-          raw_data.save
+          RawData.create(
+            identifier: data["identifier"],
+            datetime: data["datetime"].to_datetime.strftime("%F %H"),
+            energy: data["energy"],
+            daily_id: daily.id
+          )
         end
         daily.update(energy: daily.total_daily_energy)
       else
@@ -58,7 +58,7 @@ class DailiesController < ApplicationController
 
   def how_many_days(raw_datas)
     array = raw_datas.map { |e| e["datetime"].split(" ").first }
-    array.uniq!
+    array.uniq
   end
 
   def read_csv(file) # get a csv file, return an array of raw datas
