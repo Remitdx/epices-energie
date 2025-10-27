@@ -1,25 +1,34 @@
 <main>
-  <p>Date : <%= @daily.date.strftime("%F") %></p>
-  <p>Production journalière totale : <%= @daily.energy.to_fs(:delimited, delimiter: " ") %></p>
+  <p>Date : <strong><%= @daily.date.strftime("%F") %></strong></p>
+  <p>Production journalière totale : <strong><%= @daily.energy.to_fs(:delimited, delimiter: " ") %></strong></p>
+  <p>Détail de la production</p>
   <table>
-    <p>Détail de la production</p>
     <thead>
       <tr>
-        <th>Identifier</th>
-        <th>Datetime</th>
-        <th>Energy</th>
+        <th>Heure</th>
+        <% @production.each do |inverter| %>
+          <th>Onduleur <%= inverter.first.identifier %></th>
+        <% end %>
       </tr>
     </thead>
     <tbody>
-      <% @daily.raw_datas.each do |data| %>
+      <% for i in 0..23 %>
         <tr>
-          <td><%= data.identifier %></td>
-          <td><%= data.datetime.strftime("%F") %></td>
-          <td><%= data.energy.to_fs(:delimited, delimiter: " ") %></td>
+          <td><%= i %></td>
+          <% for j in 0...@production.size %>
+            <td><%= @production[j] && @production[j][i] ? @production[j][i].energy.to_fs(:delimited, delimiter: " ") : "-" %></td>
+          <% end %>
         </tr>
       <% end %>
+      <tr>
+        <td>Total</td>
+        <% @production.each do |inverter| %>
+          <% array = inverter.map { |data| data.nil? ? 0 : data.energy } %>
+          <td><%= array.sum.to_fs(:delimited, delimiter: " ") %></td>
+        <% end %>
+      </tr>
     </tbody>
   </table>
 
-  <button><%= link_to 'Index', dailies_path %></button>
+  <button><%= link_to "Retour à l'index", dailies_path %></button>
 </main>

@@ -4,7 +4,7 @@
   <ul>
     <p>Données journalières</p>
     <% @dailies.each do |data| %>
-      <li><%="date : #{data[:date].strftime("%F")} - énergie produite : #{data[:energy].to_fs(:delimited, delimiter: " ")} "%> - <%= link_to 'Détail', daily_path(data) %> - <%= link_to 'Supprimer', daily_path(data), data: { turbo_method: :delete } %></li>
+      <li><%="Date : #{data[:date].strftime("%F")} - Energie produite : #{data[:energy].to_fs(:delimited, delimiter: " ")} "%> - <%= link_to 'Détail', daily_path(data) %> - <%= link_to 'Supprimer', daily_path(data), data: { turbo_method: :delete } %></li>
     <% end %>
   </ul>
 

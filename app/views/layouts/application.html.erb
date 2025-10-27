@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= content_for(:title) || "Starterpack" %></title>
+    <title><%= content_for(:title) || "Rémi Tondeux - Test épicé" %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
@@ -23,6 +23,7 @@
   </head>
 
   <body>
+    <%= image_tag("epices.png") %>
     <% flash.each do |key, message| %>
       <div class="flash <%= key %>"><%= message %></div>
     <% end %>

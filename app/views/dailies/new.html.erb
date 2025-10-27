@@ -1,8 +1,10 @@
 <main>
-  <h1>Import new data</h1>
-  <%= form_with url: dailies_path, method: :post do |form| %>
-    <%= form.file_field :file, accept: ".csv" %>
-    <%= form.submit "Charger CSV" %>
-  <% end %>
-  <button><%= link_to 'Index', dailies_path %></button>
+  <h1>Importer des données</h1>
+  <div>
+    <%= form_with url: dailies_path, method: :post do |form| %>
+      <%= form.file_field :file, accept: ".csv" %>
+      <%= form.submit "Importer" %>
+    <% end %>
+  </div>
+  <button><%= link_to "Retour à l'index", dailies_path %></button>
 </main>

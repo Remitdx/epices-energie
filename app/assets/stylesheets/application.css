@@ -15,3 +15,17 @@
   padding: 1rem;
   right: 1rem;
  }
+
+ button {
+  padding: 0.5rem;
+  margin: 0.5rem;
+ }
+
+ table tr:nth-child(even) {
+  background-color: rgb(169, 210, 255);
+ }
+
+ table {
+  border: 1px solid black;
+  padding: 0.25rem;
+ }
